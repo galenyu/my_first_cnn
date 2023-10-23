@@ -4,7 +4,7 @@ In this notebook, follow the implementation [AlexNet](https://papers.nips.cc/pap
 
 AlexNet is a Convolutional Neural Network Architecture developed by Alex Krizhevsky, and published with Ilya Sutskever and Krizhevsky's doctoral advisor Geoffrey Hinton. It won the [ImagNet large scale Visual Recognition Challange](https://en.wikipedia.org/wiki/ImageNet#ImageNet_Challenge) in September 2012.
 
-![AlexNet Architecture]([alex.png](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*bD_DMBtKwveuzIkQTwjKQQ.png)https://miro.medium.com/v2/resize:fit:1400/format:webp/1*bD_DMBtKwveuzIkQTwjKQQ.png)
+![AlexNet Architecture]((https://miro.medium.com/v2/resize:fit:1400/format:webp/1*bD_DMBtKwveuzIkQTwjKQQ.png)https://miro.medium.com/v2/resize:fit:1400/format:webp/1*bD_DMBtKwveuzIkQTwjKQQ.png)
 
 # Result
 Please get your test set accuracy after running several epochs on the data.
