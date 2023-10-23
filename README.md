@@ -16,8 +16,11 @@ $git clone https://github.com/galenyu/my_first_cnn.git
 $cd lenet 
 ```
 1. for training:
+
 $python3 train.py
-2. for testing:
+
+3. for testing:
+   
 $python3 test.py 
 
 model will now run on GPU if available
