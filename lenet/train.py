@@ -10,9 +10,9 @@ from LeNet import LeNet
 import matplotlib.pyplot as plt
 import os
 
-def plot(total_acc):
+def plot(total_epoch, total_acc):
     fig = plt.figure()
-    plt.plot(total_acc, label='Accuracy')
+    plt.plot(total_epoch,total_acc, label='Accuracy')
     plt.legend()
     plt.xlabel('Epoch')
     plt.ylabel('Accuracy')
@@ -33,6 +33,8 @@ if __name__ == '__main__':
     all_epoch = 50
     prev_acc = 0
     print("start training")
+    total_epoch = []
+    total_acc = []
     for current_epoch in range(all_epoch):
         model.train()
         for idx, (train_x, train_label) in enumerate(train_loader):
@@ -49,8 +51,6 @@ if __name__ == '__main__':
         all_correct_num = 0
         all_sample_num = 0
         model.eval()
-        total_epoch = []
-        total_acc = []
         for idx, (test_x, test_label) in enumerate(test_loader):
             test_x = test_x.to(device)
             test_label = test_label.to(device)
@@ -61,15 +61,15 @@ if __name__ == '__main__':
             all_correct_num += np.sum(current_correct_num.to('cpu').numpy(), axis=-1)
             all_sample_num += current_correct_num.shape[0]
         acc = all_correct_num / all_sample_num
-        total_acc.append(current_epoch)
+        total_epoch.append(current_epoch)
         total_acc.append(acc)
         print('Epoch {} has done, ACC: {:.3f}'.format(current_epoch,acc), flush=True)
         if not os.path.isdir("models"):
             os.mkdir("models")
         torch.save(model, 'models/mnist_{:.3f}.pth'.format(acc))
         # if np.abs(acc - prev_acc) < 1e-4:
-        #     plot(total_acc=total_acc)
+        #     plot(total_epoch=total_epoch,total_acc=total_acc)
         #     break
         prev_acc = acc
-        if(current_epoch==50):
-            plot(total_acc=total_acc)
+        if(current_epoch==49):
+            plot(total_epoch=total_epoch,total_acc=total_acc)
